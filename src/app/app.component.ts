@@ -7,7 +7,7 @@ import {TSClass} from "./TSClass";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-js-ts-call';
+
 
   tsClass = new TSClass();
 
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     // https://bbs.egret.com/thread-16800-1-1.html
     window['tsClass'] = this.tsClass; //这步不能少
   }
@@ -24,7 +25,8 @@ export class AppComponent implements OnInit {
   onTsClick() {
     this.clicked++;
 
-    // eval("multiply()")
-    this.clicked = window.multiply(this.clicked,2);
+    this.clicked = multiply(this.clicked,2);
+    this.clicked = Calculator.sum(this.clicked, 3);
+
   }
 }
